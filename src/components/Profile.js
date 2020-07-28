@@ -10,20 +10,18 @@ class Profile extends React.Component{
 			x:true,
 			y:false
 		}
-		this.onClick = this.onClick.bind(this);
-		this.onClick1 = this.onClick1.bind(this);
+	this.onButtonClickLogged = this.onButtonClickLogged.bind(this);
+				
 	}
-	componentDidMount(){
-    setInterval(()=>{
-      this.setState({logged:localStorage["logged"]}) },500)
-  }
-	onClick(){
-		localStorage.setItem("logged",false)
-	}
+	
+	onButtonClickLogged(event){
+        event.preventDefault();
+     	localStorage.setItem("logged",false)
+     	this.setState({logged:false})
+     	console.log(localStorage.getItem("logged"))
 
-	onClick1(){
-		localStorage.setItem("logged",true)
-	}
+    }
+	
 	render(){
 //!this.state.logged
 		if (localStorage.getItem("logged") === "false"){
@@ -33,6 +31,7 @@ class Profile extends React.Component{
 			<div>
 
 				<div>Profile</div><br/>
+				<button type="button" onClick={this.onButtonClickLogged} class="btn btn-primary">Выйти</button>
 				
 				
 			</div>

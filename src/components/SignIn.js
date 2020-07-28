@@ -25,17 +25,18 @@ class SignIn extends React.Component{
         console.log(username,password)
 
         if(username === "Admin" && password === "12345" ){
-        	console.log("ты пра")
+        	console.log("")
         	localStorage.setItem("logged",true)
         	console.log(localStorage.getItem("logged"))
         	this.setState({logged:true})  
 
 
         }else{
-        	console.log("ты не прав,жирный")
+        	console.log("")
         	localStorage.setItem("logged",false)
         	console.log(localStorage.getItem("logged")) 
-        	this.setState({logged:true})
+        	this.setState({logged:false})
+        	alert("Неправильный логин или пароль")
         }
         
 
